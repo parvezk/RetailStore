@@ -1,0 +1,23 @@
+0 verbose cli /opt/homebrew/Cellar/node/23.4.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.9.2
+2 info using node@v23.4.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/parvezkose/dev/-working/RetailStoreW/RetailStore/.npmrc
+5 silly config load:file:/opt/homebrew/etc/npmrc
+6 verbose title npm run dev
+7 verbose argv "run" "dev"
+8 verbose logfile logs-max:10 dir:/Users/parvezkose/dev/-working/RetailStoreW/RetailStore/.npm/_logs/2024-12-19T14_43_44_614Z-
+9 verbose logfile /Users/parvezkose/dev/-working/RetailStoreW/RetailStore/.npm/_logs/2024-12-19T14_43_44_614Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET 200 https://registry.npmjs.org/npm 123ms
+12 verbose cwd /Users/parvezkose/dev/-working/RetailStoreW/RetailStore
+13 verbose os Darwin 21.5.0
+14 verbose node v23.4.0
+15 verbose npm  v10.9.2
+16 notice
+16 notice New [31mmajor[39m version of npm available! [31m10.9.2[39m -> [34m11.0.0[39m
+16 notice Changelog: [34mhttps://github.com/npm/cli/releases/tag/v11.0.0[39m
+16 notice To update run: [4mnpm install -g npm@11.0.0[24m
+16 notice  { force: true, [Symbol(proc-log.meta)]: true }
+17 verbose exit 0
+18 info ok

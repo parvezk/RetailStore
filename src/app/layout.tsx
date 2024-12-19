@@ -1,17 +1,17 @@
-import React from 'react';
-import type { Metadata, Viewport } from 'next';
-import './globals.css';
+import React from "react";
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
 export const metadata: Metadata = {
-  title: 'RetailStore',
-  description: 'RetailStore application using AWS Amplify and NextJS13',
-}
+  title: "RetailStore",
+  description: "RetailStore application using AWS Amplify and NextJS13",
+};
 export const viewport: Viewport = {
-  themeColor: 'black',
-}
+  themeColor: "black",
+};
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -19,5 +19,5 @@ export default function RootLayout({
         <div id="root">{children}</div>
       </body>
     </html>
-  )
+  );
 }
