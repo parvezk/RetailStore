@@ -1,0 +1,11 @@
+
+
+https://d2x189otrihntz.cloudfront.net/proxy/8081/RetailStore
+
+amplify-retailstore-parvezkose-sandbox-0613cdd0d0
+
+EMAIL="parvez.kosex@gmail.com"
+
+export AWS_ACCOUNTID=X
+export AWS_REGION=us-east-1
+export CLOUDFRONT_URL=https://d2x189otrihntz.cloudfront.net
