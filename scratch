@@ -2,6 +2,12 @@
 workshop url:
 https://catalog.workshops.aws/amplify-core/en-US
 
+LOCAL RUN:
+http://localhost:8081/RetailStore
+
+Deployment steps:
+Webhooks git push triggers deployment
+
 https://d2x189otrihntz.cloudfront.net/proxy/8081/RetailStore
 
 amplify-retailstore-parvezkose-sandbox-0613cdd0d0
