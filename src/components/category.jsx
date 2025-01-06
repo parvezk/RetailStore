@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { generateClient } from 'aws-amplify/api';
-import { useBreakpointValue } from '@aws-amplify/ui-react';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { generateClient } from "aws-amplify/api";
+import { useBreakpointValue } from "@aws-amplify/ui-react";
 
-import Navigation from './navigation';
-import AdminControls from './adminControls';
-import ProductMediumCollection from './productMediumCollection';
+import Navigation from "./navigation";
+import AdminControls from "./adminControls";
+import ProductMediumCollection from "./productMediumCollection";
 
-import AppLayout from '@cloudscape-design/components/app-layout';
-import Container from '@cloudscape-design/components/container';
-import Header from '@cloudscape-design/components/header';
-import ContentLayout from '@cloudscape-design/components/content-layout';
-import Alert from '@cloudscape-design/components/alert';
-import SpaceBetween from '@cloudscape-design/components/space-between';
-import Multiselect from '@cloudscape-design/components/multiselect';
+import AppLayout from "@cloudscape-design/components/app-layout";
+import Container from "@cloudscape-design/components/container";
+import Header from "@cloudscape-design/components/header";
+import ContentLayout from "@cloudscape-design/components/content-layout";
+import Alert from "@cloudscape-design/components/alert";
+import SpaceBetween from "@cloudscape-design/components/space-between";
+import Multiselect from "@cloudscape-design/components/multiselect";
 
 /** @type {ReturnType<typeof generateClient<import('../../amplify/data/resource').Schema>} */
 const client = generateClient();
@@ -22,18 +22,18 @@ export default function Category() {
   // this component is used when something hits /category/{name}
   // name is used to represent the category we are viewing
   const { name } = useParams();
-  const [prevName, setPrevName] = useState(''); //prevName allows us to see if the category has changed
+  const [prevName, setPrevName] = useState(""); //prevName allows us to see if the category has changed
   const [products, setProducts] = useState([]); //products is a list of the products to display filtered down
   const [allStyles, setAllStyles] = useState([]); //allStyles is a list of all the styles for building the filters
   const [filteredStyles, setFilteredStyles] = useState([]); //filteredStyles is a list of styles that are selected for filtering
-  const [, setCategoryId] = useState(''); //categoryId for use in subscription filtering
+  const [, setCategoryId] = useState(""); //categoryId for use in subscription filtering
   const [, setFilterStyleList] = useState([]); // filter list with style labels for use in subscription filtering
   const [showAlert, setShowAlert] = useState(false);
   const [alertStatus, setAlertStatus] = useState({
-    type: 'success',
-    message: 'Success!',
+    type: "success",
+    message: "Success!",
   });
-  
+
   useEffect(() => {
     // Query for categories to get all the styles that make up that category
     // so we can build the filter display
@@ -42,8 +42,9 @@ export default function Category() {
         const { data: categories, errors } = await client.models.Category.list({
           filter: { name: { eq: name } },
         });
+
         if (categories) {
-          setAllStyles(Object.values(categories[0].styles)); 
+          setAllStyles(Object.values(categories[0].styles));
           setCategoryId(categories[0].id);
           return categories[0].id;
         }
@@ -64,7 +65,7 @@ export default function Category() {
             limit: 3000,
             filter: { categoryProductsId: { eq: categories[0].id } },
           });
-          
+
           const filterList = filteredStyles.map((style) => {
             return style.label;
           });
@@ -137,7 +138,7 @@ export default function Category() {
       toolsHide={true}
       navigationWidth={200}
       minContentWidth={"80%"}
-      maxContentWidth={'100%'}
+      maxContentWidth={"100%"}
       content={
         <ContentLayout
           header={
@@ -157,24 +158,21 @@ export default function Category() {
               >
                 {`Products - ${name}`}
               </Header>
-              {showAlert
-              ? <Alert type={alertStatus.type}>{alertStatus.message}</Alert>
-              : null
-              }
+              {showAlert ? (
+                <Alert type={alertStatus.type}>{alertStatus.message}</Alert>
+              ) : null}
               <Multiselect
                 selectedOptions={filteredStyles}
-                onChange={({detail}) => {
-                  setFilteredStyles(detail.selectedOptions)
+                onChange={({ detail }) => {
+                  setFilteredStyles(detail.selectedOptions);
                 }}
-                deselectAriaLabel={e => `Remove ${e.label}`}
-                options={
-                  allStyles.map((style) => {
-                    return {
-                      label: style,
-                      value: style
-                    }
-                  })
-                }
+                deselectAriaLabel={(e) => `Remove ${e.label}`}
+                options={allStyles.map((style) => {
+                  return {
+                    label: style,
+                    value: style,
+                  };
+                })}
                 placeholder="Select styles"
                 selectedAriaLabel="Selected"
               />
@@ -182,10 +180,7 @@ export default function Category() {
           }
         >
           <Container>
-            <ProductMediumCollection
-              items={products}
-              overrides={overrides}
-            />
+            <ProductMediumCollection items={products} overrides={overrides} />
           </Container>
         </ContentLayout>
       }

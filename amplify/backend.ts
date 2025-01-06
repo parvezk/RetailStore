@@ -10,6 +10,7 @@ const backend = defineBackend({
 
 /* Define Admin group auth stack */
 const userPoolId = backend.auth.resources.userPool.userPoolId;
+console.log(userPoolId, "userPoolId");
 const authGroupStack = backend.createStack("AuthGroupStack");
 const adminGroup = new cognito.CfnUserPoolGroup(authGroupStack, "AdminGroup", {
   userPoolId,

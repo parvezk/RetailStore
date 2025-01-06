@@ -1,4 +1,3 @@
-
 workshop url:
 https://catalog.workshops.aws/amplify-core/en-US
 
@@ -8,12 +7,24 @@ http://localhost:8081/RetailStore
 Deployment steps:
 Webhooks git push triggers deployment
 
-https://d2x189otrihntz.cloudfront.net/proxy/8081/RetailStore
+us-east-1
+https://main.d1uwkhrzd07gzd.amplifyapp.com/
+flamboyanz@gmail.com (added to ADMIN group in cognito user pool)
+Acer@1234
 
-amplify-retailstore-parvezkose-sandbox-0613cdd0d0
+us-west-2
+https://main.d2x9nepyiw8p30.amplifyapp.com/
+flamboyanz@gmail.com
+Acer@1234
 
 EMAIL="parvez.kosex@gmail.com"
 
 export AWS_ACCOUNTID=X
 export AWS_REGION=us-east-1
 export CLOUDFRONT_URL=https://d2x189otrihntz.cloudfront.net
+
+====
+When the API KEY (set as default auth) expired for AppSync auth
+Go to AppSync > APIS > amplifyData > settings
+Create new API key
+Select and edit the key; extend the expiry date manually
