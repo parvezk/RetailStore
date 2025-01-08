@@ -39,6 +39,10 @@ Go to AppSync > APIS > amplifyData > settings
 Create new API key
 Select and edit the key; extend the expiry date manually
 ====
+amplify_outputs.json
+This file contains the necessary configuration and endpoints for your Amplify client library to connect to your backend resources. It helps configure the client-side connection to your deployed Amplify backend services.
+
+====
 Authentication/Authorization
 To ensure we only display the Create/Update Product and Create/Update Category options to administrator users, we add conditional render code to only display the options when an admin user is signed-in. We can capture the currently signed-in user using the fetchAuthSession method from the Amplify libraries and validate that they are a member of the admin group.
 
