@@ -5,7 +5,7 @@ LOCAL RUN:
 http://localhost:8081/RetailStore
 
 Deployment steps:
-Webhooks git push triggers deployment
+Webhooks supports git push triggers deployment
 
 us-east-1
 https://main.d1uwkhrzd07gzd.amplifyapp.com/
@@ -22,9 +22,24 @@ EMAIL="parvez.kosex@gmail.com"
 export AWS_ACCOUNTID=X
 export AWS_REGION=us-east-1
 export CLOUDFRONT_URL=https://d2x189otrihntz.cloudfront.net
+====
+Amplify Generated Form Builder Components - perform CRUD operations on the backend data
+Allows authenticated users to Create new products and categories and Update them as well
+
+src/components/ProductCreateForm.jsx
+src/components/ProductUpdateForm.jsx
+src/components/CategoryCreateForm.jsx
+src/components/CategoryUpdateForm.jsx
+
+# These components are referrenced in src/components/adminControls.jsx
 
 ====
 When the API KEY (set as default auth) expired for AppSync auth
 Go to AppSync > APIS > amplifyData > settings
 Create new API key
 Select and edit the key; extend the expiry date manually
+====
+Authentication/Authorization
+To ensure we only display the Create/Update Product and Create/Update Category options to administrator users, we add conditional render code to only display the options when an admin user is signed-in. We can capture the currently signed-in user using the fetchAuthSession method from the Amplify libraries and validate that they are a member of the admin group.
+
+The AdminControls React component is a reusable component that allows us to centralize code to support Product and Category operations. The component is referenced in both the Product component and the Recommended component. We use component properties, or props, to customize the component based on where it is being referenced. For example, on the Recommended page, when a user is signed-in, they will have the option to create a new Product or Category but not update an existing one. On the Product page, a signed-in user will have the ability to update an existing product.
